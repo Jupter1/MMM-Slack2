@@ -20,10 +20,6 @@ Module.register("MMM-Slack2",{
 		this.pointer = 0;
 		this.authors = [];
 		
-		this.client = new WebClient(slackToken, {
-			// LogLevel can be imported and used to make debugging simpler
-			logLevel: LogLevel.DEBUG
-		});
 		
 		//this.getMessages();
 		
@@ -41,6 +37,11 @@ Module.register("MMM-Slack2",{
 	
 		this.authors = [];
 		this.counter = 0;
+		
+		client = new WebClient(slackToken, {
+			// LogLevel can be imported and used to make debugging simpler
+			logLevel: LogLevel.DEBUG
+		});
 		
 		const result = await client.conversations.history({
 			channel: channelId
