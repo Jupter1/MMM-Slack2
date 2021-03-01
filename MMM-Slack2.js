@@ -25,7 +25,7 @@ Module.register("MMM-Slack2",{
 			logLevel: LogLevel.DEBUG
 		});
 		
-		this.getMessages();
+		//this.getMessages();
 		
 		if (!this.config.urgentRefresh) {
 			this.updateDom(this.config.animationSpeed);
@@ -52,6 +52,9 @@ Module.register("MMM-Slack2",{
 	},
 
 	getDom: function() {
+	
+		this.getMessages();
+	
 		var messageElement = document.createElement('div');
 		
 		messageElement.className = 'slackMessage';
