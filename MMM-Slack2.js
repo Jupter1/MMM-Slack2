@@ -15,6 +15,7 @@ Module.register('MMM-Slack2',{
 	},
 
 	start: function() {
+		console.log("starte MMM-SLack2.........");
 		this.slackMessages = [];
 		this.counter = 0;
 		this.pointer = 0;
