@@ -43,7 +43,7 @@ module.exports = NodeHelper.create({
 		
 		console.log("Client initialisiert.");
 		
-		var conversationHistory [];
+		var conversationHistory = [];
 		conversationHistory = this.getConversationHistory(client, channelId);
 		
 		console.log(conversationHistory.length + "neue Nachrichten gefunden");
