@@ -1,10 +1,6 @@
-// Require the Node Slack SDK package (github.com/slackapi/node-slack-sdk)
-const { WebClient, LogLevel } = require("@slack/web-api");
-
-Module.register("MMM-Slack2",{
-	// Default module config.
+Module.register('MMM-Slack',{
 	defaults: {
-	showUserName: true,
+        showUserName: true,
 	showTime: true,
 	showSeconds: false,
 	maxUsers: 3,
@@ -14,15 +10,16 @@ Module.register("MMM-Slack2",{
 	animationSpeed: 1000
 	},
 	
+	getStyles: function() {
+		return ['slack.css'];
+	},
+
 	start: function() {
 		this.slackMessages = [];
 		this.counter = 0;
 		this.pointer = 0;
 		this.authors = [];
-		
-		
-		//this.getMessages();
-		
+		this.openSlackConnection();
 		if (!this.config.urgentRefresh) {
 			this.updateDom(this.config.animationSpeed);
 		}
@@ -31,31 +28,25 @@ Module.register("MMM-Slack2",{
         		self.updateDom(self.config.animationSpeed);
         	}, self.config.updateInterval);
 	},
-	
-	
-	getMessages: function() {
-	
-		this.authors = [];
-		this.counter = 0;
-		
-		client = new WebClient(slackToken, {
-			// LogLevel can be imported and used to make debugging simpler
-			logLevel: LogLevel.DEBUG
-		});
-		
-		const result = await client.conversations.history({
-			channel: channelId
-		});
-		
-		slackMessages = result.messages;
-		
+
+	openSlackConnection: function() {
+		this.sendSocketNotification('START_CONNECTION', {config: this.config});
+	},
+
+	socketNotificationReceived: function(notification, payload) {
+		if(notification === 'SLACK_DATA'){
+			if(payload != null) {
+				this.slackMessages = payload;
+				if (this.config.urgentRefresh) {
+					this.updateDom(this.config.animationSpeed);
+					this.authors = [];
+					this.counter = 0;
+				}
+			}
 		}
 	},
 
 	getDom: function() {
-	
-		this.getMessages();
-	
 		var messageElement = document.createElement('div');
 		
 		messageElement.className = 'slackMessage';
