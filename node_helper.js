@@ -21,17 +21,20 @@ module.exports = NodeHelper.create({
 	getConversationHistory: async function(client, channelId) {
 		console.log("Abfrage starten...");
 		
+		var conversationHistory;
+		
 		try {
 			const result = await client.conversations.history({
 				channel: channelId
 			});
-			console.log("Abfrage fertig.");
-			console.log(result.messages.length + "Nachrichten gefunden");
 		}
 		catch (error) {
 			console.error(error);
 		}
-		return result.messages;
+		console.log("Abfrage fertig.");
+		console.log(result.messages.length + "Nachrichten gefunden");
+		conversationHistory = result.messages;
+		return conversationHistory;
 	},
 
 	startSlackConnection: function(config) {
@@ -47,7 +50,7 @@ module.exports = NodeHelper.create({
 		
 		console.log("Client initialisiert.");
 		
-		var conversationHistory;
+		var conversationHistory = [];
 		conversationHistory = this.getConversationHistory(client, channelId);
 		
 		console.log(conversationHistory.length + "neue Nachrichten gefunden");
