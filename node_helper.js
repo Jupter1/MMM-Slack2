@@ -15,6 +15,16 @@ module.exports = NodeHelper.create({
 			this.startSlackConnection(payload.config);
 		}
 	},
+	
+	getConversationHistory: async function(client) {
+		var conversationHistory;
+		const result = await client.conversations.history({
+			channel: config.slackChannel
+		});
+		conversationHistory = result.messages;
+		console.log(conversationHistory + "Nachrichten gefunden");
+		return conversationHistory;
+	},
 
 	startSlackConnection: function(config) {
 		var self = this;
@@ -27,11 +37,7 @@ module.exports = NodeHelper.create({
 		});
 		
 		var conversationHistory;
-		const result = await client.conversations.history({
-			channel: config.slackChannel
-		});
-		conversationHistory = result.messages;
-		console.log(conversationHistory + "Nachrichten gefunden");
+		conversationHistory = this.getConversationHistory(client);
 		
 		var slackMessages = [];
 		conversationHistory.forEach(function(message) {
