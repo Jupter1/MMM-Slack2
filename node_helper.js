@@ -12,6 +12,8 @@ module.exports = NodeHelper.create({
 	
 	socketNotificationReceived: function(notification, payload) {
 		if (notification === 'START_CONNECTION') {
+			console.log('Token: '+payload.config.slackToken);
+			console.log('Channel: '+payload.config.slackChannel);
 			this.startSlackConnection(payload.config);
 		}
 	},
