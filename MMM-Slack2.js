@@ -1,4 +1,4 @@
-Module.register('MMM-Slack',{
+Module.register('MMM-Slack2',{
 	defaults: {
         showUserName: true,
 	showTime: true,
