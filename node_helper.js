@@ -44,7 +44,15 @@ module.exports = NodeHelper.create({
 		console.log("Client initialisiert.");
 		
 		var conversationHistory = [];
-		conversationHistory = this.getConversationHistory(client, channelId);
+		//
+		console.log("Abfrage starten...");
+		const result = client.conversations.history({
+			channel: channelId
+		});
+		conversationHistory = result.messages;
+		console.log("Abfrage fertig.");
+		//
+		//conversationHistory = this.getConversationHistory(client, channelId);
 		
 		console.log(conversationHistory.length + "neue Nachrichten gefunden");
 		
