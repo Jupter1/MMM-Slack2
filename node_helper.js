@@ -45,7 +45,7 @@ module.exports = NodeHelper.create({
       this.messages = slackMessages;
       
       this.broadcastMessage();
-    }
+    },
   
     broadcastMessage: function() {
       this.sendSocketNotification('SLACK-DATA', this.messages);
