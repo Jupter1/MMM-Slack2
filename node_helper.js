@@ -37,7 +37,7 @@ module.exports = NodeHelper.create({
 		return conversationHistory;
 	},
 
-	startSlackConnection: function(config) {
+	startSlackConnection: async function(config) {
 		var self = this;
 		var token = config.slackToken;
 		var channelId = config.slackChannel;
@@ -51,7 +51,7 @@ module.exports = NodeHelper.create({
 		console.log("Client initialisiert.");
 		
 		var conversationHistory = [];
-		conversationHistory = this.getConversationHistory(client, channelId);
+		conversationHistory = await this.getConversationHistory(client, channelId);
 		
 		console.log(conversationHistory.length + "neue Nachrichten gefunden");
 		
