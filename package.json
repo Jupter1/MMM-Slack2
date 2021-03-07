@@ -1,17 +1,13 @@
   
 {
-  "name": "slack",
-  "version": "1.0.0",
+  "name": "MMM-Slack2",
+  "version": "0.1",
   "description": "Module for interfacing Slack from MagicMirror",
-  "main": "slack.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "MagicMirror",
     "Slack"
   ],
-  "author": "---",
+  "author": "Jupter1",
   "license": "MIT",
   "dependencies": {
     "@slack/web-api": "6.0.0"
