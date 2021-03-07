@@ -3,6 +3,10 @@
   "name": "MMM-Slack2",
   "version": "1.0.0",
   "description": "Module for interfacing Slack from MagicMirror",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jupter1/MMM-Slack2.git"
+  },
   "keywords": [
     "MagicMirror",
     "Slack"
