@@ -50,9 +50,9 @@ module.exports = NodeHelper.create({
 		
 		console.log("Client initialisiert.");
 		
-		//var conversationHistory;
+		var result;
 		try {
-			const result = await client.conversations.history({
+			result = await client.conversations.history({
 				channel: channelId
 			});
 		}
