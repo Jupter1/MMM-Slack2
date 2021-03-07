@@ -18,10 +18,10 @@ module.exports = NodeHelper.create({
 		}
 	},
 	
-	getConversationHistory: async function(client, channelId) {
+	getConversationHistory: function(client, channelId) {
 		var conversationHistory = [];
 		console.log("Abfrage starten...");
-		const result = await client.conversations.history({
+		const result = client.conversations.history({
 			channel: channelId
 		});
 		conversationHistory = result.messages;
@@ -30,7 +30,7 @@ module.exports = NodeHelper.create({
 		return conversationHistory;
 	},
 
-	startSlackConnection: function(config) {
+	startSlackConnection: async function(config) {
 		var self = this;
 		var token = config.slackToken;
 		var channelId = config.slackChannel;
@@ -44,15 +44,7 @@ module.exports = NodeHelper.create({
 		console.log("Client initialisiert.");
 		
 		var conversationHistory = [];
-		//
-		console.log("Abfrage starten...");
-		const result = client.conversations.history({
-			channel: channelId
-		});
-		conversationHistory = result.messages;
-		console.log("Abfrage fertig.");
-		//
-		//conversationHistory = this.getConversationHistory(client, channelId);
+		conversationHistory = await this.getConversationHistory(client, channelId);
 		
 		console.log(conversationHistory.length + "neue Nachrichten gefunden");
 		
