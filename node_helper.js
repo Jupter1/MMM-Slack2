@@ -51,7 +51,15 @@ module.exports = NodeHelper.create({
 		console.log("Client initialisiert.");
 		
 		var conversationHistory = [];
-		conversationHistory = await this.getConversationHistory(client, channelId);
+		try {
+			const result = await client.conversations.history({
+				channel: channelId
+			});
+		}
+		catch (error) {
+			console.error(error);
+		}
+		conversationHistory = result.messages;
 		
 		console.log(conversationHistory.length + "neue Nachrichten gefunden");
 		
