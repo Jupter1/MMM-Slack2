@@ -27,7 +27,7 @@ module.exports = NodeHelper.create({
 		});
 		
 		var conversationHistory;
-		const result = client.conversations.history({
+		const result = await client.conversations.history({
 			channel: config.slackChannel
 		});
 		conversationHistory = result.messages;
