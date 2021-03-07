@@ -1,7 +1,7 @@
   
 {
   "name": "MMM-Slack2",
-  "version": "0.1",
+  "version": "1.0.0",
   "description": "Module for interfacing Slack from MagicMirror",
   "keywords": [
     "MagicMirror",
