@@ -46,8 +46,6 @@ module.exports = NodeHelper.create({
 			logLevel: LogLevel.DEBUG
 		});
 		
-		console.log("Client initialisiert.");
-		
 		var result;
 		try {
 			result = await client.conversations.history({
@@ -58,15 +56,15 @@ module.exports = NodeHelper.create({
 			console.error(error);
 		}
 		
-		console.log(result.messages.length + "neue Nachrichten gefunden");
+		console.log(result.messages.length + " neue Nachrichten gefunden");
 		
 		var slackMessages = [];
 		result.messages.forEach(function(message) {
 			if(!message.subtype) {
 				var slackMessage = {
 					'messageId': message.ts,
-					//'user': client.users.info({ user: message.user }),
-					'user': "Beispielnutzer",
+					'user': client.users.info({ user: message.user }),
+					//'user': "Beispielnutzer",
 					'message': message.text
 				};
 				slackMessages.push(slackMessage);
