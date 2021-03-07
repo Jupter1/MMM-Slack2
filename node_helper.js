@@ -19,11 +19,13 @@ module.exports = NodeHelper.create({
 	},
 	
 	getConversationHistory: async function(client, channelId) {
-		var conversationHistory;
+		var conversationHistory = [];
+		console.log("Abfrage starten...");
 		const result = await client.conversations.history({
 			channel: channelId
 		});
 		conversationHistory = result.messages;
+		cpnsole.log("Abfrage fertig.");
 		console.log(conversationHistory.length + "Nachrichten gefunden");
 		return conversationHistory;
 	},
@@ -39,7 +41,9 @@ module.exports = NodeHelper.create({
 			logLevel: LogLevel.DEBUG
 		});
 		
-		var conversationHistory;
+		console.log("Client initialisiert.");
+		
+		var conversationHistory [];
 		conversationHistory = this.getConversationHistory(client, channelId);
 		
 		console.log(conversationHistory.length + "neue Nachrichten gefunden");
