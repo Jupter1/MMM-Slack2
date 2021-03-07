@@ -39,6 +39,8 @@ module.exports = NodeHelper.create({
 		var conversationHistory;
 		conversationHistory = this.getConversationHistory(client);
 		
+		console.log(conversationHistory + "Nachrichten gefunden");
+		
 		var slackMessages = [];
 		conversationHistory.forEach(function(message) {
 			if(!message.subtype) {
