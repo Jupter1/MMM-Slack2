@@ -61,6 +61,10 @@ module.exports = NodeHelper.create({
 		}
 		//conversationHistory = result.messages;
 		
+		if(!result.ok) {
+			console.log("FEHLER!!!!!!");
+		}
+		
 		console.log(result.messages.length + "neue Nachrichten gefunden");
 		
 		var slackMessages = [];
