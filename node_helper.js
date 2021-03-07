@@ -76,6 +76,8 @@ module.exports = NodeHelper.create({
 		});
 		this.messages = slackMessages;
 		
+		console.log(this.messages[0].message);
+		
 		this.broadcastMessage();
 	},
 	
