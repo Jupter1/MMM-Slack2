@@ -22,7 +22,7 @@ module.exports = NodeHelper.create({
 			channel: config.slackChannel
 		});
 		conversationHistory = result.messages;
-		console.log(conversationHistory + "Nachrichten gefunden");
+		console.log(conversationHistory.length + "Nachrichten gefunden");
 		return conversationHistory;
 	},
 
@@ -39,7 +39,7 @@ module.exports = NodeHelper.create({
 		var conversationHistory;
 		conversationHistory = this.getConversationHistory(client);
 		
-		console.log(conversationHistory + "neue Nachrichten gefunden");
+		console.log(conversationHistory.length + "neue Nachrichten gefunden");
 		
 		var slackMessages = [];
 		conversationHistory.forEach(function(message) {
