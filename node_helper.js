@@ -25,7 +25,7 @@ module.exports = NodeHelper.create({
 			channel: channelId
 		});
 		conversationHistory = result.messages;
-		cpnsole.log("Abfrage fertig.");
+		console.log("Abfrage fertig.");
 		console.log(conversationHistory.length + "Nachrichten gefunden");
 		return conversationHistory;
 	},
