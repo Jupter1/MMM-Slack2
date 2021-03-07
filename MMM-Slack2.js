@@ -15,7 +15,6 @@ Module.register('MMM-Slack2',{
 	},
 
 	start: function() {
-		console.log("starte MMM-SLack2.........");
 		this.slackMessages = [];
 		this.counter = 0;
 		this.pointer = 0;
@@ -36,9 +35,7 @@ Module.register('MMM-Slack2',{
 
 	socketNotificationReceived: function(notification, payload) {
 		if(notification === 'SLACK_DATA'){
-			console.log("Nachrichten empfangen");
 			if(payload != null) {
-				console.log("nachrichten vollständig");
 				this.slackMessages = payload;
 				console.log("messages received, index 0: " + slackMessages[0].message);
 				if (this.config.urgentRefresh) {
