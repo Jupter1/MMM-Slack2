@@ -50,7 +50,7 @@ module.exports = NodeHelper.create({
 		
 		console.log("Client initialisiert.");
 		
-		var conversationHistory;
+		//var conversationHistory;
 		try {
 			const result = await client.conversations.history({
 				channel: channelId
@@ -59,12 +59,12 @@ module.exports = NodeHelper.create({
 		catch (error) {
 			console.error(error);
 		}
-		conversationHistory = result.messages;
+		//conversationHistory = result.messages;
 		
-		console.log(conversationHistory.length + "neue Nachrichten gefunden");
+		console.log(result.messages.length + "neue Nachrichten gefunden");
 		
 		var slackMessages = [];
-		conversationHistory.forEach(function(message) {
+		result.messages.forEach(function(message) {
 			if(!message.subtype) {
 				var slackMessage = {
 					'messageId': message.ts,
