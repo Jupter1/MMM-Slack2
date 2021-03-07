@@ -63,8 +63,8 @@ module.exports = NodeHelper.create({
 			if(!message.subtype) {
 				var slackMessage = {
 					'messageId': message.ts,
-					'user': client.users.info({ user: message.user }),
-					//'user': "Beispielnutzer",
+					//'user': client.users.info({ user: message.user }),
+					'user': "Beispielnutzer",
 					'message': message.text
 				};
 				slackMessages.push(slackMessage);
