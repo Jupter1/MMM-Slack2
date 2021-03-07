@@ -22,7 +22,7 @@ module.exports = NodeHelper.create({
       
         var slackMessages
       
-        var client = new WebClient(config.slackToken), {
+        var client = new WebClient(config.slackToken, {
           logLevel: LogLevel.DEBUG
         });
       
