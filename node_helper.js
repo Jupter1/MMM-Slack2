@@ -36,7 +36,7 @@ module.exports = NodeHelper.create({
           if(!message.subtype) {
              var slackMessage = {
                'messageId': message.ts,
-               'user': client.users.info({ user: message.user });
+               'user': client.users.info({ user: message.user }),
                'message': message.text
              };
              slackMessages.push(slackMessage);
@@ -45,7 +45,7 @@ module.exports = NodeHelper.create({
       this.messages = slackMessages;
       
       this.broadcastMessage();
-    };
+    }
   
     broadcastMessage: function() {
       this.sendSocketNotification('SLACK-DATA', this.messages);
