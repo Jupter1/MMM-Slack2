@@ -4,7 +4,6 @@ var { WebClient, LogLevel } = require("@slack/web-api");
 var client;
 var messages = [];
 
-
 module.exports = NodeHelper.create({
 	
 	start: function() {
