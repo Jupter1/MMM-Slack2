@@ -19,7 +19,8 @@ Change directory into the newly created folder:
 cd MMM-Slack2/
 ```
 Install the module:
-```npm install
+```
+npm install
 ```
 
 ## Update
@@ -31,7 +32,8 @@ npm install
 ```
 
 If for some reason you have changed the module files, you might want to reset the module:
-```git reset --hard
+```
+git reset --hard
 ```
 
 ## Configuration
