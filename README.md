@@ -54,7 +54,7 @@ To be written...
 |`maxMessages`|The maximum of messages that are called from the API. Make sure, to not exceed the API limits as mentioned above.<br><br>**Type:** `integer`<br>**Default value:** `20`|
 |`animationSpeed`|Speed of the update animation. The value is given in milliseconds.<br><br>**Type:** `integer`<br>**Default value:** `1000 // 1 second`|
 
-Here is anexample of an enty in `config.js`:
+Here is an example of an entry in `config.js`:
 ``` JavaScript
 {
     module: "MMM-Slack2",
