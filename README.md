@@ -55,6 +55,12 @@ git reset --hard
 11.  Your app is now part of your workspace. Select your app, hit the `i` in the top right corner if necessary to show the conversation details. Then, click `more`, `Add this app to a channel...`, select a channel and finally click `Add`.
 12.  Now set your module configuration in your `config.js`.
 
+**Note on Rate Limits**
+Slack is limiting its API requests in different tiers. These are applied *per app per workspace*. This module uses two different functions:
+* `conversations.history` has a rate limit of Tier 3. Tier 3 allows 50+ requests per minute. Sporadic bursts are tolerated.
+* `users.info` has a rate limit of Tier 4. Tier 4 allows 100+ requests per minute. 
+A method to ensure, that the rate limits are not exceeded is implemented. If you need more, consider installing a seperate app for each MagicMirror you have. You can information in rate limits on [Slack's Website](https://api.slack.com/docs/rate-limits). 
+
 ## Configuration
 |Option|Description|
 |---|---|
