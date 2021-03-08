@@ -4,6 +4,8 @@ MMM-Slack2 is a module for the [MagicMirror](https://github.com/MichMich/MagicMi
 
 It was created due to the change of the API handling by Slack. Its `node-helper` was completely rewritten, the Core module file remains almost completely as in [MMM-Slack](https://github.com/Jupter1/MMM-Slack). The old module was forked from [grid-x](https://github.com/grid-x/MMM-Slack) and [nrkno](https://github.com/nrkno/MMM-Slack). I would not have been able to create this module without their work.
 
+Unlike the older version of the Slack module, this module uses the web-api for Slack. You will have to create a bot which brings messages from Slack to your MagicMirror.
+
 ## Installation
 
 Go to the modules folder in your MagicMirror installation. For example: 
