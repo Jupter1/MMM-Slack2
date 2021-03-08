@@ -47,7 +47,7 @@ module.exports = NodeHelper.create({
 			console.error(error);
 		}
 		
-		console.log(result.messages.length + " neue Nachrichten gefunden");
+		console.log("MMM-Slack2: " + result.messages.length + " messages received.");
 		
 		var slackMessages = [];
 		result.messages.forEach(function(message) {
@@ -61,12 +61,6 @@ module.exports = NodeHelper.create({
 			}
 		});
 		this.messages = slackMessages;
-		
-		/*
-		console.log(this.messages[0].message);
-		console.log(this.messages[0].user);
-		console.log(this.messages[0].messageId);
-		*/
 		
 		this.prepareDataForSending();
 	},
