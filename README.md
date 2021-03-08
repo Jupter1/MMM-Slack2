@@ -57,4 +57,27 @@ Here is anexample of an enty in `config.js`:
     module: "MMM-Slack2",
     position: "top_right",
     config: {
-        slackToken: "xoxb-YOURTOKEN",
+        slackToken: "xoxb-123456789-123456789-123456789ABC",
+        slackChannel: "YOUR_CHANNEL_ID",
+        maxUsers: 3,
+        showUserName: true,
+        showTime: true,
+        showSeconds: false,
+        displayTime: 3600,
+        urgentRefresh: false,
+        updateInterval: 60000,
+        animationSpeed: 1000
+    }
+},
+```
+
+## To Do's
+* Multiple instances of this module are currently not supported.
+* Use the events-API to listen to new messages in order to not call the conversations.history method for every refresh.
+
+## Special Thanks
+* [Michael Teeuw](https://github.com/MichMich) for inspiring me and many others to build a MagicMirror.
+* [nrkno](https://github.com/nrkno) for creating the Original MMM-Slack module.
+
+## Issues
+If you find any problems, bugs or have a question, please [open a GitHub issue](https://github.com/Jupter1/MMM-Slack2/issues) in thes repository.
