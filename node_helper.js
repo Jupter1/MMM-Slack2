@@ -15,9 +15,9 @@ module.exports = NodeHelper.create({
 		if (notification === 'START_CONNECTION') {
 			this.startSlackConnection(payload.config);
 		}
-		if (notification === 'GET_SLACK_MESSAGES') {
-			this.getSlackMessages(payload.config);
-		}
+//		if (notification === 'GET_SLACK_MESSAGES') {
+//			this.getSlackMessages(payload.config);
+//		}
 	},
 	/*
 	getConversationHistory: async function(client, channelId) {
