@@ -7,7 +7,8 @@ Module.register('MMM-Slack2',{
 	updateInterval: 60000,
 	displayTime: 3600,
 	urgentRefresh: false,
-	animationSpeed: 1000
+	animationSpeed: 1000,
+	debug: false
 	},
 	
 	getStyles: function() {
@@ -44,13 +45,13 @@ Module.register('MMM-Slack2',{
 		console.log(notification);
 		if(notification === 'SLACK_DATA'){
 			if(payload != null) {
-				this.slackMessages = payload;
-				this.updateDom(this.config.animationSpeed);
-				/*if (this.config.urgentRefresh) {
-					this.updateDom(this.config.animationSpeed);
+				if (payload != this.slackMessages && this.config.urgentRefresh) {
 					this.authors = [];
 					this.counter = 0;
-				}*/
+				}
+				this.slackMessages = payload;
+				this.updateDom(this.config.animationSpeed);
+				
 			}
 		}
 	},
