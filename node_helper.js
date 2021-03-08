@@ -69,10 +69,11 @@ module.exports = NodeHelper.create({
 		var slackMessages = [];
 		result.messages.forEach(function(message) {
 			if(!message.subtype) {
+				var userName = this.getUserName(message);
 				var slackMessage = {
 					'messageId': message.ts,
 					//'user': client.users.info({ user: message.user }),
-					'user': "Beispielnutzer",
+					'user': userName,
 					'message': message.text
 				};
 				slackMessages.push(slackMessage);
@@ -85,6 +86,17 @@ module.exports = NodeHelper.create({
 		console.log(this.messages[0].messageId);
 		
 		this.broadcastMessage();
+	},
+	
+	getUserName: async function(message) {
+		var userName;
+		try {
+			userName = await client.users.info({ user:message.user });
+		}
+		catch (error) {
+			console.error(error);
+		}
+		return userName;
 	},
 	
 	broadcastMessage: function() {
