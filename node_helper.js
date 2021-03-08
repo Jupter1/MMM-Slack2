@@ -73,7 +73,7 @@ module.exports = NodeHelper.create({
 				var slackMessage = {
 					'messageId': message.ts,
 					//'user': client.users.info({ user: message.user }),
-					'user': 'Beispieluser',
+					'user': message.user, //'Beispieluser',
 					'message': message.text
 				};
 				slackMessages.push(slackMessage);
@@ -85,7 +85,7 @@ module.exports = NodeHelper.create({
 		console.log(this.messages[0].user);
 		console.log(this.messages[0].messageId);
 		
-		this.prepareDataforSending();
+		self.prepareDataforSending();
 	},
 	
 	prepareDataForSending: async function() {
