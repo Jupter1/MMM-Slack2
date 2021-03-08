@@ -25,7 +25,8 @@ module.exports = NodeHelper.create({
 		var token = config.slackToken;
 		
 		client = new WebClient(token, {
-			logLevel: LogLevel.DEBUG
+			// Change hier for LogLevel.DEBUG
+			logLevel: LogLevel.INFO
 		});
 		this.getSlackMessages(config);
 	},
