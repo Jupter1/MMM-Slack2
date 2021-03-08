@@ -30,4 +30,4 @@ If for some reason you have changed the module files, you might want to reset th
 |Option|Description|
 |---|---|
 |`slackToken`|The token of your `slack bot` user.<br><br>**Type:**`string` This value is **Required**.<br>|
-|`slackChannel`|The ID of the Slack channel you want to display messages from.<br>You find the channel ID in your the URL: https://app.slack.com/client/workspaceID/**channelID**<br><br>**Type:**`string` This value is **Required**.<br>|
+|`slackChannel`|The ID of the Slack channel you want to display messages from.<br>You find the channel ID in your the URL: `https://app.slack.com/client/workspaceID/**channelID**`<br><br>**Type:**`string` This value is **Required**.<br>|
