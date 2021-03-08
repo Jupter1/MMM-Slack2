@@ -76,7 +76,7 @@ module.exports = NodeHelper.create({
 				//var userName = await self.getUserName(message);
 				var userName;
 				try {
-				userName = await client.users.info({ user:message.user });
+					userName = await client.users.info({ user: message.user });
 				}
 				catch (error) {
 					console.error(error);
