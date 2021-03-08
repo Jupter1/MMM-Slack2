@@ -94,7 +94,8 @@ module.exports = NodeHelper.create({
 			console.log("Suche nach Benutzer: " +this.messages[i].user);
 			var userName;
 			try {
-				userName = await client.users.info({ user: this.messages[i].user }).name;
+				const userData = await client.users.info({ user: this.messages[i].user });
+				userName = userData.user.name
 			}
 			catch (error) {
 				console.error(error);
