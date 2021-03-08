@@ -33,8 +33,8 @@ Module.register('MMM-Slack2',{
 			}
 		}
 		else {
-			if ((this.config.updateInterval / 600) < 100) {
-				this.config.updateInterval = 60000;
+			if (this.config.updateInterval < 5000) {
+				this.config.updateInterval = 5000;
 			}
 		}
 		
