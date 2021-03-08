@@ -32,3 +32,10 @@ If for some reason you have changed the module files, you might want to reset th
 |`slackToken`|The token of your `slack bot` user.<br><br>**Type:** `string` This value is **Required**.<br>|
 |`slackChannel`|The ID of the Slack channel you want to display messages from.<br>You find the channel ID in your the URL: `https://app.slack.com/client/workspaceID/channelID`<br><br>**Type:** `string` This value is **Required**.<br>|
 |`maxUsers`|Indicates how many different Slack-Users will be displayed and thus, how many messages can be cyclted through at most. If set to `1`, onle the newest message will appear.<br><br>**Type:** `integer`<br>**Default value:** `3`|
+|showUserName|If true, the message sender's user name will be displayed with the message.<br><br>**Type:** `boolean`<br>**Default value:** `true`|
+|showTime|If true, the timestamp of the message will be displayed after the username.<br><br>**Type:** `boolean`<br>**Default value:** `true`|
+|showSeconds|If true, the timestamp includes the seconds. Only works, if showTime is true.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
+|displayTime|The time in seconds the last message is displayed.<br><br>**Type:** `integer`<br>**Default value:** `3600 // 60 minutes`|
+|urgentRefresh|If true, the messages will be updated as soon as a new message arrives. If false, the cycle will be completed before the newest message will be shown.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
+|updateInterval|The time-interval which defines how often the module is updated.<br><br>**Type:** `integer`<br>**Default value:** `60000 // 1 minute`|
+|animationSpeed|Speed of the update animation. The value is given in milliseconds.<br><br>**Type:** `integer`<br>**Default value:** `1000 // 1 second`|
