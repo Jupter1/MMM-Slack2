@@ -20,6 +20,7 @@ Module.register('MMM-Slack2',{
 		this.counter = 0;
 		this.pointer = 0;
 		this.authors = [];
+		this.firstRun = true;
 		
 		// Ensure, that Slack-API limit is not exceeded.
 		// Slack-API limit: Tier 3: 50+ for conversations.history
@@ -45,13 +46,14 @@ Module.register('MMM-Slack2',{
 		if(notification === 'SLACK_DATA'){
 			if(payload != null) {
 				var oldMessages = this.slackMessages
-				if (this.config.urgentRefresh && (this.slackMessages[0].messageId !== oldMessages[0].messageId)) {
+				if (this.config.urgentRefresh && !this.firstRun) {
 					if (payload[0].messageId !== this.slackMessages[0].messageId) {
 						this.authors = [];
 						this.counter = 0;
 					}
 				}
 				this.slackMessages = payload;
+				this.firstRun = false;
 				this.updateDom(this.config.animationSpeed);
 			}
 		}
