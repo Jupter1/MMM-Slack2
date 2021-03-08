@@ -1,6 +1,7 @@
 var NodeHelper = require("node_helper");
 var { WebClient, LogLevel } = require("@slack/web-api");
 
+var client;
 var messages = [];
 
 
@@ -13,6 +14,9 @@ module.exports = NodeHelper.create({
 	socketNotificationReceived: function(notification, payload) {
 		if (notification === 'START_CONNECTION') {
 			this.startSlackConnection(payload.config);
+		}
+		if (notification === 'GET_SLACK_MESSAGES') {
+			this.getSlackMessages(payload.config);
 		}
 	},
 	/*
@@ -35,17 +39,21 @@ module.exports = NodeHelper.create({
 		return conversationHistory;
 	},
 */
-	startSlackConnection: async function(config) {
+	startSlackConnection: function(config) {
 		var self = this;
 		var token = config.slackToken;
+		
+		client = new WebClient(token, {
+			logLevel: LogLevel.DEBUG
+		});
+		getSlackMessages(config);
+	},
+	
+	getSlackMessages: async function(config) {
+		var self = this;
 		var channelId = config.slackChannel;
 		
 		var slackMessages;
-		
-		var client = new WebClient(token, {
-			logLevel: LogLevel.DEBUG
-		});
-		
 		var result;
 		try {
 			result = await client.conversations.history({
