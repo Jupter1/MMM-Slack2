@@ -33,12 +33,14 @@ module.exports = NodeHelper.create({
 	getSlackMessages: async function(config) {
 		var self = this;
 		var channelId = config.slackChannel;
+		var limit = config.maxMessages;
 		
 		var slackMessages;
 		var result;
 		try {
 			result = await client.conversations.history({
-				channel: channelId
+				channel: channelId,
+				limit: limit
 			});
 		}
 		catch (error) {
