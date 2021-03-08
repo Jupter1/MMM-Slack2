@@ -65,7 +65,10 @@ module.exports = NodeHelper.create({
 		}
 		
 		console.log(result.messages.length + " neue Nachrichten gefunden");
-		
+		this.prepareMessagesForSending(result);
+	},
+	
+	prepareMessagesForSending: function(result) {
 		var slackMessages = [];
 		result.messages.forEach(function(message) {
 			if(!message.subtype) {
