@@ -46,7 +46,7 @@ module.exports = NodeHelper.create({
 		client = new WebClient(token, {
 			logLevel: LogLevel.DEBUG
 		});
-		getSlackMessages(config);
+		this.getSlackMessages(config);
 	},
 	
 	getSlackMessages: async function(config) {
