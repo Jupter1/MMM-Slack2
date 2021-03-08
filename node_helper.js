@@ -13,14 +13,14 @@ module.exports = NodeHelper.create({
 	
 	socketNotificationReceived: function(notification, payload) {
 		if (notification === 'START_CONNECTION') {
-			this.startSlackConnection(payload.config);
+			this.initializeSlackConnection(payload.config);
 		}
 		if (notification === 'GET_SLACK_MESSAGES') {
 			this.getSlackMessages(payload.config);
 		}
 	},
 	
-	startSlackConnection: function(config) {
+	initializeSlackConnection: function(config) {
 		var self = this;
 		var token = config.slackToken;
 		
