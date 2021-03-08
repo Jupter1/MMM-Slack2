@@ -49,7 +49,7 @@ module.exports = NodeHelper.create({
 		this.getSlackMessages(config);
 	},
 	
-	getSlackMessages: await function(config) {
+	getSlackMessages: async function(config) {
 		var self = this;
 		var channelId = config.slackChannel;
 		
