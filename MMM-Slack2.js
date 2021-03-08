@@ -20,13 +20,17 @@ Module.register('MMM-Slack2',{
 		this.pointer = 0;
 		this.authors = [];
 		this.openSlackConnection();
-		if (!this.config.urgentRefresh) {
+		/*if (!this.config.urgentRefresh) {
 			this.updateDom(this.config.animationSpeed);
 		}
         	var self = this;
         	setInterval(function() {
         		self.updateDom(self.config.animationSpeed);
         	}, self.config.updateInterval);
+		*/
+		setInterval(() => {
+			this.sendSocketNotification("GET_SLACK_MESSAGES", {config: this.config});
+		}, self.config.updateInterval);
 	},
 
 	openSlackConnection: function() {
