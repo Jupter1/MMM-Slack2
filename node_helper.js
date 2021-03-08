@@ -50,7 +50,7 @@ module.exports = NodeHelper.create({
 	},
 	
 	getSlackMessages: async function(config) {
-		var self = this;
+		//var self = this;
 		var channelId = config.slackChannel;
 		
 		var slackMessages;
@@ -69,6 +69,7 @@ module.exports = NodeHelper.create({
 	},
 	
 	prepareMessagesForSending: function(result) {
+		var self = this;
 		var slackMessages = [];
 		result.messages.forEach(function(message) {
 			if(!message.subtype) {
