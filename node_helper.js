@@ -50,7 +50,7 @@ module.exports = NodeHelper.create({
 	},
 	
 	getSlackMessages: async function(config) {
-		//var self = this;
+		var self = this;
 		var channelId = config.slackChannel;
 		
 		var slackMessages;
@@ -65,26 +65,15 @@ module.exports = NodeHelper.create({
 		}
 		
 		console.log(result.messages.length + " neue Nachrichten gefunden");
-		this.prepareMessagesForSending(result);
-	},
-	
-	prepareMessagesForSending: function(result) {
-		var self = this;
+		
 		var slackMessages = [];
-		result.messages.forEach(async function(message) {
+		result.messages.forEach(function(message) {
 			if(!message.subtype) {
 				//var userName = await self.getUserName(message);
-				var userName;
-				try {
-					userName = await client.users.info({ user: message.user });
-				}
-				catch (error) {
-					console.error(error);
-				}
 				var slackMessage = {
 					'messageId': message.ts,
 					//'user': client.users.info({ user: message.user }),
-					'user': userName,
+					'user': 'Beispieluser',
 					'message': message.text
 				};
 				slackMessages.push(slackMessage);
@@ -96,6 +85,21 @@ module.exports = NodeHelper.create({
 		console.log(this.messages[0].user);
 		console.log(this.messages[0].messageId);
 		
+		this.prepareDataforSending();
+	},
+	
+	prepareDataForSending: async function() {
+		
+		for(var i = 0; i < this.messages.length; i++) {
+			var userName;
+			try {
+				userName = await client.users.info({ user: this.messages.user });
+			}
+			catch (error) {
+				console.error(error);
+			}
+			this.messages.user = userName;
+		}
 		this.broadcastMessage();
 	},
 	
