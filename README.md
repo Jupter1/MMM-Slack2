@@ -87,7 +87,8 @@ Here is an example of an entry in `config.js`:
         urgentRefresh: false,
         updateInterval: 60000,
         maxMessages: 20,
-        animationSpeed: 1000
+        animationSpeed: 1000,
+        debug: false
     }
 },
 ```
