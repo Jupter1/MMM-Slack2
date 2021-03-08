@@ -42,7 +42,6 @@ Module.register('MMM-Slack2',{
 	},
 
 	socketNotificationReceived: function(notification, payload) {
-		console.log(notification);
 		if(notification === 'SLACK_DATA'){
 			if(payload != null) {
 				if (this.config.urgentRefresh) {
