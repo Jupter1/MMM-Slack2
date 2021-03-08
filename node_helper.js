@@ -63,21 +63,23 @@ module.exports = NodeHelper.create({
 		});
 		this.messages = slackMessages;
 		
-		this.prepareDataForSending();
+		this.prepareDataForSending(config);
 	},
 	
-	prepareDataForSending: async function() {
+	prepareDataForSending: async function(config) {
 		
-		for(var i = 0; i < this.messages.length; i++) {
-			var userName;
-			try {
-				const userData = await client.users.info({ user: this.messages[i].user });
-				userName = userData.user.real_name
+		if (config.showUserName) {
+			for(var i = 0; i < this.messages.length; i++) {
+				var userName;
+				try {
+					const userData = await client.users.info({ user: this.messages[i].user });
+					userName = userData.user.real_name
+				}
+				catch (error) {
+					console.error(error);
+				}
+				this.messages[i].user = userName;
 			}
-			catch (error) {
-				console.error(error);
-			}
-			this.messages[i].user = userName;
 		}
 		this.broadcastMessage();
 	},
