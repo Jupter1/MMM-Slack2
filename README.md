@@ -7,13 +7,20 @@ It was created due to the change of the API handling by Slack. Its `node-helper`
 ## Installation
 
 Go to the modules folder in your MagicMirror installation. For example: 
-`cd MagicMirror/modules/`
+```
+cd MagicMirror/modules/
+```
 Clone the repository:
-`git clone https://github.com/Jupter1/MMM-Slack2.git`
+```
+git clone https://github.com/Jupter1/MMM-Slack2.git
+```
 Change directory into the newly created folder:
-`cd MMM-Slack2/`
+```
+cd MMM-Slack2/
+```
 Install the module:
-`npm install`
+```npm install
+```
 
 ## Update
 
@@ -24,7 +31,8 @@ npm install
 ```
 
 If for some reason you have changed the module files, you might want to reset the module:
-`git reset --hard`
+```git reset --hard
+```
 
 ## Configuration
 |Option|Description|
