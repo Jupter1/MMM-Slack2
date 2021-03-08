@@ -23,10 +23,16 @@ module.exports = NodeHelper.create({
 		var self = this;
 		var token = config.slackToken;
 		
-		client = new WebClient(token, {
-			// Change hier for LogLevel.DEBUG
-			logLevel: LogLevel.INFO
-		});
+		if(config.debug) {
+			client = new WebClient(token, {
+				logLevel: LogLevel.DEBUG
+			});
+		}
+		else {
+			client = new WebClient(token, {
+				logLevel: LogLevel.INFO
+			});
+		}
 		this.getSlackMessages(config);
 	},
 	
