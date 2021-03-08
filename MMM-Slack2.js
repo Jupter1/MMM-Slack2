@@ -28,9 +28,10 @@ Module.register('MMM-Slack2',{
         		self.updateDom(self.config.animationSpeed);
         	}, self.config.updateInterval);
 		*/
+		var self = this;
 		setInterval(() => {
-			this.sendSocketNotification("GET_SLACK_MESSAGES", {config: this.config});
-		}, this.config.updateInterval);
+			self.sendSocketNotification("GET_SLACK_MESSAGES", {config: self.config});
+		}, self.config.updateInterval);
 	},
 
 	openSlackConnection: function() {
