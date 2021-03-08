@@ -45,7 +45,6 @@ Module.register('MMM-Slack2',{
 		if(notification === 'SLACK_DATA'){
 			if(payload != null) {
 				this.slackMessages = payload;
-				console.log("messages received, index 0: " + slackMessages[0].message);
 				this.updateDom(this.config.animationSpeed);
 				/*if (this.config.urgentRefresh) {
 					this.updateDom(this.config.animationSpeed);
