@@ -4,6 +4,7 @@ Module.register('MMM-Slack2',{
 	showTime: true,
 	showSeconds: false,
 	maxUsers: 3,
+	maxMessages: 20,
 	updateInterval: 60000,
 	displayTime: 3600,
 	urgentRefresh: false,
