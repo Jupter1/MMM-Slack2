@@ -37,18 +37,17 @@ git reset --hard
 ```
 
 ## How to use the Slack API
-To be written...
 1. Log into your slack account.
 2. Go to your [Slack apps](https://api.slack.com/apps) page and create a new Slack app.
 3. Give it a name as you like, i. e. `Magic Mirror` and choose your Development Slack Workspace. This is the workspace in which the channel you want to display messages from is. Then click on `Create App`.
 4.  Your app will automatically appear with the Basic Information page. Scroll down a bit and hit `Generate Token and Scopes`.
 5.  Choose a token name, i. e. `magicmirror` and select the `authorizations:read` scope for this token. Click `Generate`, then `Done`.
 6.  Scroll back up and got to the `OAuth & Permissions` page.
-7.  Scroll down a bit and add some `Bot token scopes`. The needed scope depends on yout channel. If you want, you can add all the scopes mentioned below:
+7.  Scroll down a bit and add some `Bot token scopes`. The needed scope depends on your channel. If you want, you can add all the scopes listed below:
     1.  `channels:history` to display messages from a public channel.
     2.  `groups:history` to display messages from a private channel.
     3.  `users:read` to display the sender's names correctly. If you chose to set `showUserName` to `false` this scope is not necessary.
-8.  Scroll back up and click `Install to Workspace`, then `Allow`. Wait a second, then you will see your app's `Bot User OAuth Token`.
+8.  Scroll back up and click `Install to Workspace`, then `Allow`. Wait a second, then you will see your app's `Bot User OAuth Token`. This is the token you will need for `slackToken` in your `config.js`.
 9.  Go to your Slack workspace in your browser. Click the `+ Add Apps` symbol in the Apps section below the user list.
 10.  A list of apps will appear, select the app you just created.
 11.  Your app is now part of your workspace. Select your app, hit the `i` in the top right corner if necessary to show the conversation details. Then, click `more`, `Add this app to a channel...`, select a channel and finally click `Add`.
