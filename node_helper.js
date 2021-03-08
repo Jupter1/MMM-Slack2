@@ -71,9 +71,16 @@ module.exports = NodeHelper.create({
 	prepareMessagesForSending: function(result) {
 		var self = this;
 		var slackMessages = [];
-		result.messages.forEach(function(message) {
+		result.messages.forEach(async function(message) {
 			if(!message.subtype) {
-				var userName = self.getUserName(message);
+				//var userName = await self.getUserName(message);
+				var userName;
+				try {
+				userName = await client.users.info({ user:message.user });
+				}
+				catch (error) {
+					console.error(error);
+				}
 				var slackMessage = {
 					'messageId': message.ts,
 					//'user': client.users.info({ user: message.user }),
