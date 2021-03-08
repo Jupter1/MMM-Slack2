@@ -20,17 +20,17 @@ Module.register('MMM-Slack2',{
 		this.counter = 0;
 		this.pointer = 0;
 		this.authors = [];
+		
+		// Ensure, that Slack-API limit is not exceeded.
+		// Slack-API limit: Tier 3: 50+ for conversations.history
+		// Slack-API limit: Tier 4: 100+ for users.info
+		if ((this.config.updateInterval / 600) < maxMessages) {
+			this.config.updateInterval = 60000;
+			this.config.maxMessages = 20;
+		}
+		
 		this.openSlackConnection();
-//		if (!this.config.urgentRefresh) {
-//			this.updateDom(this.config.animationSpeed);
-//		}
 		this.updateDom(this.config.animationSpeed);
-        	var self = this;
-		/*
-        	setInterval(function() {
-        		self.updateDom(self.config.animationSpeed);
-        	}, self.config.updateInterval);
-		*/
 		var self = this;
 		setInterval(function() {
 			self.sendSocketNotification("GET_SLACK_MESSAGES", {config: self.config});
@@ -51,7 +51,6 @@ Module.register('MMM-Slack2',{
 				}
 				this.slackMessages = payload;
 				this.updateDom(this.config.animationSpeed);
-				
 			}
 		}
 	},
