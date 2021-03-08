@@ -45,7 +45,7 @@ Module.register('MMM-Slack2',{
 		console.log(notification);
 		if(notification === 'SLACK_DATA'){
 			if(payload != null) {
-				if (payload != this.slackMessages && this.config.urgentRefresh) {
+				if ((payload != this.slackMessages) && this.config.urgentRefresh) {
 					this.authors = [];
 					this.counter = 0;
 				}
