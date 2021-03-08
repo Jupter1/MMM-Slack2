@@ -88,6 +88,7 @@ module.exports = NodeHelper.create({
 	},
 	
 	broadcastMessage: function() {
+		console.log("Sending messages......");
 		this.sendSocketNotification('SLACK_DATA', this.messages);
     	}
 });
