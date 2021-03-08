@@ -29,7 +29,7 @@ Module.register('MMM-Slack2',{
         	}, self.config.updateInterval);
 		*/
 		var self = this;
-		setInterval(() => {
+		setInterval(function() {
 			self.sendSocketNotification("GET_SLACK_MESSAGES", {config: self.config});
 		}, self.config.updateInterval);
 	},
