@@ -43,7 +43,7 @@ git reset --hard
 4.  Your app will automatically appear with the Basic Information page. Scroll down a bit and hit `Generate Token and Scopes`.
 5.  Choose a token name, i. e. `magicmirror` and select the `authorizations:read` scope for this token. Click `Generate`, then `Done`.
 6.  Scroll back up and got to the `OAuth & Permissions` page.
-7.  Scroll down a bit and add some `Bot token scopes`. The needed scope depends on your channel. If you want, you can add all the scopes listed below:
+7.  Scroll down a bit and add some `Bot token scopes`. The needed scopes depends on your channel. If you do not want to think about it, you can just add all the following scopes:
     1.  `channels:history` to display messages from a public channel.
     2.  `groups:history` to display messages from a private channel.
     3.  `users:read` to display the sender's names correctly. If you chose to set `showUserName` to `false` this scope is not necessary.
