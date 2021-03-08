@@ -36,6 +36,9 @@ If for some reason you have changed the module files, you might want to reset th
 git reset --hard
 ```
 
+## How to use the Slack API
+To be written...
+
 ## Configuration
 |Option|Description|
 |---|---|
