@@ -19,26 +19,7 @@ module.exports = NodeHelper.create({
 			this.getSlackMessages(payload.config);
 		}
 	},
-	/*
-	getConversationHistory: async function(client, channelId) {
-		console.log("Abfrage starten...");
-		
-		var conversationHistory;
-		
-		try {
-			const result = await client.conversations.history({
-				channel: channelId
-			});
-		}
-		catch (error) {
-			console.error(error);
-		}
-		console.log("Abfrage fertig.");
-		console.log(result.messages.length + "Nachrichten gefunden");
-		conversationHistory = result.messages;
-		return conversationHistory;
-	},
-*/
+	
 	startSlackConnection: function(config) {
 		var self = this;
 		var token = config.slackToken;
@@ -69,11 +50,9 @@ module.exports = NodeHelper.create({
 		var slackMessages = [];
 		result.messages.forEach(function(message) {
 			if(!message.subtype) {
-				//var userName = await self.getUserName(message);
 				var slackMessage = {
 					'messageId': message.ts,
-					//'user': client.users.info({ user: message.user }),
-					'user': message.user, //'Beispieluser',
+					'user': message.user, 
 					'message': message.text
 				};
 				slackMessages.push(slackMessage);
@@ -81,17 +60,18 @@ module.exports = NodeHelper.create({
 		});
 		this.messages = slackMessages;
 		
+		/*
 		console.log(this.messages[0].message);
 		console.log(this.messages[0].user);
 		console.log(this.messages[0].messageId);
+		*/
 		
 		this.prepareDataForSending();
 	},
 	
 	prepareDataForSending: async function() {
 		
-		for(var i = 0; i < 2; i++) {//this.messages.length; i++) {
-			console.log("Suche nach Benutzer: " +this.messages[i].user);
+		for(var i = 0; i < this.messages.length; i++) {
 			var userName;
 			try {
 				const userData = await client.users.info({ user: this.messages[i].user });
@@ -100,14 +80,12 @@ module.exports = NodeHelper.create({
 			catch (error) {
 				console.error(error);
 			}
-			console.log("Gefunden: " + userName);
 			this.messages[i].user = userName;
 		}
 		this.broadcastMessage();
 	},
 	
 	broadcastMessage: function() {
-		console.log(this.messages[0].message + " ist die erste Nachricht");
 		this.sendSocketNotification('SLACK_DATA', this.messages);
     	}
 });
