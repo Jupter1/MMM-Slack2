@@ -91,7 +91,7 @@ module.exports = NodeHelper.create({
 	prepareDataForSending: async function() {
 		
 		for(var i = 0; i < 2; i++) {//this.messages.length; i++) {
-			console.log("Suche nach Benutzer: " +this.messages.user);
+			console.log("Suche nach Benutzer: " +this.messages[i].user);
 			var userName;
 			try {
 				userName = await client.users.info({ user: this.messages[i].user });
