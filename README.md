@@ -29,5 +29,6 @@ If for some reason you have changed the module files, you might want to reset th
 ## Configuration
 |Option|Description|
 |---|---|
-|`slackToken`|The token of your `slack bot` user.<br><br>**Type:**`string` This value is **Required**.<br>|
-|`slackChannel`|The ID of the Slack channel you want to display messages from.<br>You find the channel ID in your the URL: `https://app.slack.com/client/workspaceID/**channelID**`<br><br>**Type:**`string` This value is **Required**.<br>|
+|`slackToken`|The token of your `slack bot` user.<br><br>**Type:** `string` This value is **Required**.<br>|
+|`slackChannel`|The ID of the Slack channel you want to display messages from.<br>You find the channel ID in your the URL: `https://app.slack.com/client/workspaceID/channelID`<br><br>**Type:** `string` This value is **Required**.<br>|
+|`maxUsers`|Indicates how many different Slack-Users will be displayed and thus, how many messages can be cyclted through at most. If set to `1`, onle the newest message will appear.<br><br>**Type:** `integer`<br>**Default value:** `3`|
