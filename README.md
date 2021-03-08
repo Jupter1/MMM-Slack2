@@ -69,6 +69,7 @@ Here is an example of an entry in `config.js`:
         displayTime: 3600,
         urgentRefresh: false,
         updateInterval: 60000,
+        maxMessages: 20,
         animationSpeed: 1000
     }
 },
