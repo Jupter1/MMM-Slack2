@@ -8,7 +8,8 @@ Module.register('MMM-Slack2',{
 	updateInterval: 60000,
 	displayTime: 3600,
 	urgentRefresh: false,
-	animationSpeed: 1000
+	animationSpeed: 1000,
+	debug: false
 	},
 	
 	getStyles: function() {
