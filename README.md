@@ -43,7 +43,7 @@ To be written...
 |Option|Description|
 |---|---|
 |`slackToken`|The token of your `slack bot` user. <br>It looks something like this: `xoxb-123456789-123456789-123456789ABC`<br><br>**Type:** `string` This value is **Required**.<br>|
-|`slackChannel`|The ID of the Slack channel you want to display messages from.<br>You find the channel ID in your the URL: `https://app.slack.com/client/workspaceID/channelID`<br><br>**Type:** `string` This value is **Required**.<br>|
+|`slackChannel`|The ID of the Slack channel you want to display messages from. It works with both a public or a private channel.<br>You find the channel ID in your the URL: `https://app.slack.com/client/workspaceID/channelID`<br><br>**Type:** `string` This value is **Required**.<br>|
 |`maxUsers`|Indicates how many different Slack-Users will be displayed and thus, how many messages can be cyclted through at most. If set to `1`, onle the newest message will appear.<br><br>**Type:** `integer`<br>**Default value:** `3`|
 |`showUserName`|If true, the message sender's user name will be displayed with the message.<br><br>**Type:** `boolean`<br>**Default value:** `true`|
 |`showTime`|If true, the timestamp of the message will be displayed after the username.<br><br>**Type:** `boolean`<br>**Default value:** `true`|
