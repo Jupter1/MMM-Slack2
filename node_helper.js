@@ -85,7 +85,7 @@ module.exports = NodeHelper.create({
 		console.log(this.messages[0].user);
 		console.log(this.messages[0].messageId);
 		
-		self.prepareDataforSending();
+		this.prepareDataforSending();
 	},
 	
 	prepareDataForSending: async function() {
