@@ -38,6 +38,10 @@ git reset --hard
 
 ## How to use the Slack API
 To be written...
+1. Log into your slack account.
+2. Go to your [Slack apps](https://api.slack.com/apps) page and create a new Slack app.
+3. Give it a name as you like, i. e. `Magic Mirror` and choose your Development Slack Workspace. This is the workspace from which you want to get channel-messages. Then click on `Create App`.
+4.  Your app will automatically appear with the Basic Information page. Scroll down a bit and hit `Generate Token and Scopes`.
 
 ## Configuration
 |Option|Description|
