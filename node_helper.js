@@ -95,7 +95,7 @@ module.exports = NodeHelper.create({
 			var userName;
 			try {
 				const userData = await client.users.info({ user: this.messages[i].user });
-				userName = userData.user.name
+				userName = userData.user.real_name
 			}
 			catch (error) {
 				console.error(error);
@@ -104,17 +104,6 @@ module.exports = NodeHelper.create({
 			this.messages[i].user = userName;
 		}
 		this.broadcastMessage();
-	},
-	
-	getUserName: async function(message) {
-		var userName;
-		try {
-			userName = await client.users.info({ user:message.user });
-		}
-		catch (error) {
-			console.error(error);
-		}
-		return userName;
 	},
 	
 	broadcastMessage: function() {
