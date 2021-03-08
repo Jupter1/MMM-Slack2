@@ -44,7 +44,8 @@ Module.register('MMM-Slack2',{
 	socketNotificationReceived: function(notification, payload) {
 		if(notification === 'SLACK_DATA'){
 			if(payload != null) {
-				if (this.config.urgentRefresh && (this.slackMessages[0] !== null)) {
+				var oldMessages = this.slackMessages
+				if (this.config.urgentRefresh && (this.slackMessages[0].messageId !== oldMessages[0].messageId)) {
 					if (payload[0].messageId !== this.slackMessages[0].messageId) {
 						this.authors = [];
 						this.counter = 0;
