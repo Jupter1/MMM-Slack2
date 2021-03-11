@@ -73,7 +73,7 @@ A method to ensure, that the rate limits are not exceeded is implemented. If you
 |`displayTime`|The time in seconds the last message is displayed.<br><br>**Type:** `integer`<br>**Default value:** `3600 // 60 minutes`|
 |`urgentRefresh`|If true, the messages will be updated as soon as a new message arrives. If false, the cycle will be completed before the newest message will be shown.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
 |`updateInterval`|The time-interval which defines how often the module is updated.<br><br>**Type:** `integer`<br>**Default value:** `60000 // 1 minute`<br>**Minimum value:** `5000 // 5 seconds`|
-|`apiInterval`|Defines how often the Slack API will be called. If for example `apiInterval`is set to `5` and `updateInterval`is set to `6000`, the displayed message is updated every minute, but the Slack API is only called every five minutes.<br><br>**Type:** `integer`<br>**Default value:** `5`<br>**Minimum value:** `1`|
+|`apiInterval`|Defines how often the Slack API will be called. If for example `apiInterval`is set to `5` and `updateInterval`is set to `60000`, the displayed message is updated every minute, but the Slack API is only called every five minutes.<br><br>**Type:** `integer`<br>**Default value:** `5`<br>**Minimum value:** `1`|
 |`maxMessages`|The maximum of messages that are called from the API. Make sure, to not exceed the API limits as mentioned above.<br><br>**Type:** `integer`<br>**Default value:** `20`|
 |`animationSpeed`|Speed of the update animation. The value is given in milliseconds.<br><br>**Type:** `integer`<br>**Default value:** `1000 // 1 second`|
 |`debug`|If true, the API-client will start with more detailed logging information.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
