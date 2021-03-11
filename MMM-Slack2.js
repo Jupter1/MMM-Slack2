@@ -25,9 +25,12 @@ Module.register('MMM-Slack2',{
 		this.firstRun = true;
 		this.apiCounter = 0;
 		
-		// Ensure, that Slack-API limit is not exceeded.
+		// Ensure, that Slack-API limit is not exceeded and minimum values are respected.
 		// Slack-API limit: Tier 3: 50+ for conversations.history
 		// Slack-API limit: Tier 4: 100+ for users.info
+		if (this.apiInterval < 1) {
+			this.apiInterval = 1;
+		}
 		if (this.config.showUserName) {
 			if (((this.config.updateInterval * this.apiInterval) / 600) < this.config.maxMessages) {
 				this.config.updateInterval = 60000;
