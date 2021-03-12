@@ -28,11 +28,11 @@ Module.register('MMM-Slack2',{
 		// Ensure, that Slack-API limit is not exceeded and minimum values are respected.
 		// Slack-API limit: Tier 3: 50+ for conversations.history
 		// Slack-API limit: Tier 4: 100+ for users.info
-		if (this.apiInterval < 1) {
-			this.apiInterval = 1;
+		if (this.config.apiInterval < 1) {
+			this.config.apiInterval = 1;
 		}
 		if (this.config.showUserName) {
-			if (((this.config.updateInterval * this.apiInterval) / 600) < this.config.maxMessages) {
+			if (((this.config.updateInterval * this.config.apiInterval) / 600) < this.config.maxMessages) {
 				this.config.updateInterval = 60000;
 				this.config.maxMessages = 20;
 			}
@@ -57,12 +57,14 @@ Module.register('MMM-Slack2',{
 	
 	intervalFunction: function() {
 		Log.log(this.apiCounter);
-		Log.log(this.apiInterval);
-		if (this.apiCounter < (this.apiInterval - 1)) {
+		Log.log(this.config.apiInterval);
+		if (this.apiCounter < (this.config.apiInterval - 1)) {
 			this.apiCounter = this.apiCounter + 1;
 			this.updateDom(this.config.animationSpeed);
+			Log.log("Ansicht aktualisiert");
 		}
 		else {
+			Log.log("API call");
 			this.apiCounter = 0;
 			this.sendSocketNotification("GET_SLACK_MESSAGES", {config: this.config});
 		}
