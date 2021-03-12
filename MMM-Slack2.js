@@ -56,15 +56,11 @@ Module.register('MMM-Slack2',{
 	},
 	
 	intervalFunction: function() {
-		Log.log(this.apiCounter);
-		Log.log(this.config.apiInterval);
 		if (this.apiCounter < (this.config.apiInterval - 1)) {
 			this.apiCounter = this.apiCounter + 1;
 			this.updateDom(this.config.animationSpeed);
-			Log.log("Ansicht aktualisiert");
 		}
 		else {
-			Log.log("API call");
 			this.apiCounter = 0;
 			this.sendSocketNotification("GET_SLACK_MESSAGES", {config: this.config});
 		}
