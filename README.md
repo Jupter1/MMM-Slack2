@@ -59,7 +59,8 @@ git reset --hard
 Slack is limiting its API requests in different tiers. These are applied *per app per workspace*. This module uses two different functions:
 * `conversations.history` has a rate limit of Tier 3. Tier 3 allows 50+ requests per minute. Sporadic bursts are tolerated.
 * `users.info` has a rate limit of Tier 4. Tier 4 allows 100+ requests per minute. 
-A method to ensure, that the rate limits are not exceeded is implemented. If you need more, consider installing a seperate app for each MagicMirror you have. You can information in rate limits on [Slack's Website](https://api.slack.com/docs/rate-limits). 
+
+A method to ensure, that the rate limits are not exceeded is implemented. If you need more, consider installing a seperate app for each MagicMirror you have. You can find more information on rate limits on their [Website](https://api.slack.com/docs/rate-limits). 
 
 ## Configuration
 |Option|Description|
