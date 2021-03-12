@@ -57,12 +57,12 @@ Module.register('MMM-Slack2',{
 	
 	intervalFunction: function() {
 		if (this.apiCounter < (this.apiInterval - 1)) {
-			this.apiCounter++;
+			this.apiCounter = this.apiCounter + 1;
 			this.updateDom(this.config.animationSpeed);
 		}
 		else {
 			this.apiCounter = 0;
-			self.sendSocketNotification("GET_SLACK_MESSAGES", {config: self.config});
+			this.sendSocketNotification("GET_SLACK_MESSAGES", {config: self.config});
 		}
 	},
 
