@@ -47,7 +47,7 @@ Module.register('MMM-Slack2',{
 		this.updateDom(this.config.animationSpeed);
 		var self = this;
 		setInterval(function() {
-			this.intervalFunction();
+			self.intervalFunction();
 		}, self.config.updateInterval);
 	},
 
