@@ -62,7 +62,7 @@ Module.register('MMM-Slack2',{
 		}
 		else {
 			this.apiCounter = 0;
-			this.sendSocketNotification("GET_SLACK_MESSAGES", {config: self.config});
+			this.sendSocketNotification("GET_SLACK_MESSAGES", {config: this.config});
 		}
 	},
 
