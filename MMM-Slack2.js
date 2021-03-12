@@ -56,6 +56,8 @@ Module.register('MMM-Slack2',{
 	},
 	
 	intervalFunction: function() {
+		Log.log(this.apiCounter);
+		Log.log(this.apiInterval);
 		if (this.apiCounter < (this.apiInterval - 1)) {
 			this.apiCounter = this.apiCounter + 1;
 			this.updateDom(this.config.animationSpeed);
