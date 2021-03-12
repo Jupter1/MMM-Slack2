@@ -47,24 +47,23 @@ Module.register('MMM-Slack2',{
 		this.updateDom(this.config.animationSpeed);
 		var self = this;
 		setInterval(function() {
-			if (this.apiCounter == 0) {
-				this.apiCounter = this.apiCounter++;
-				self.sendSocketNotification("GET_SLACK_MESSAGES", {config: self.config});
-			}
-			else {
-				if (this.apiCounter + 1 == this.apiInterval) {
-					this.apiCounter = 0;
-				}
-				else {
-					this.apiCounter = this.apiCounter++;
-				}
-				this.updateDom(this.config.animationSpeed);
-			}
+			this.intervalFunction();
 		}, self.config.updateInterval);
 	},
 
 	openSlackConnection: function() {
 		this.sendSocketNotification('START_CONNECTION', {config: this.config});
+	},
+	
+	intervalFunction: function() {
+		if (this.apiCounter < (this.apiInterval - 1)) {
+			this.apiCounter++;
+			this.updateDom(this.config.animationSpeed);
+		}
+		else {
+			this.apiCounter = 0;
+			self.sendSocketNotification("GET_SLACK_MESSAGES", {config: self.config});
+		}
 	},
 
 	socketNotificationReceived: function(notification, payload) {
